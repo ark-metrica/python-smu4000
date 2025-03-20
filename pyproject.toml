@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "smu4000"
-version = "1.0.0"
+dynamic = ["version"]
 description = "Control library for the Ark Metrica SMU-4000"
 authors = [{ name = "Ark Metrica Ltd.", email = "info@arkmetrica.com" }]
 license = { text = "GPL-3.0-or-later" }
@@ -20,7 +20,3 @@ classifiers = [
 packages = ["smu4000"]
 
 [tool.setuptools_scm]
-version_scheme = "no-guess-dev"  # Prevents guessing versions from Git
-local_scheme = "no-local-version"  # Ensures no Git-related versioning
-write_to = "smu4000/_version.py"  # Auto-generate version file
-fallback_version = "0.0.0.dev"  # Use this if version detection fails
