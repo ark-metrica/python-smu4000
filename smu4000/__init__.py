@@ -1,16 +1,15 @@
-"""Control Library for the Ark Metric SMU-4000."""
+"""Control Library for the Ark Metrica Ltd. SMU-4000."""
 
 import logging
-
-from setuptools_scm import get_version
 
 logger = logging.getLogger(__name__)
 
 try:
-    __version__ = get_version()
-except LookupError:
+    # _version.py gets created by setuptools_scm at build time
+    from ._version import version as __version__
+except ImportError:
     __version__ = "0.0.0.dev"  # Fallback version
-    logger.warning("Version not found. Using fallback version 0.0.0.dev")
+    logger.debug(f"Version not found. Using fallback version {__version__}")
 
 from .smu4000 import Smu4000
 
